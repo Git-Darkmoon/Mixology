@@ -1,0 +1,45 @@
+/* @font-face {
+  font-family: "Inter", sans-serif;
+  src: url(fonts/Inter-VariableFont.woff2) format("woff2"),
+    url(fonts/Inter-VariableFont.woff) format("woff"),
+    url(fonts/Inter-VariableFont.ttf.ttf) format("truetype");
+}
+ */
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+img,
+svg {
+  display: block;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}

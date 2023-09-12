@@ -1,0 +1,7 @@
+@use "../src/scss/variables";
+@use "../src/scss/mixins";
+@use "../src/scss/reset";
+
+body {
+  background-color: var(--clr-bg);
+}

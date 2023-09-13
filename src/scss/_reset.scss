@@ -1,22 +1,52 @@
-/* @font-face {
-  font-family: "Inter", sans-serif;
-  src: url(fonts/Inter-VariableFont.woff2) format("woff2"),
-    url(fonts/Inter-VariableFont.woff) format("woff"),
-    url(fonts/Inter-VariableFont.ttf.ttf) format("truetype");
+@use "./variables";
+
+// Bold font (fw-700)
+@font-face {
+  font-family: var(--ff-base);
+  src: url("../fonts/woff/NunitoSans_10pt-Bold.woff") format("woff"),
+    url("../fonts/ttf/NunitoSans_10pt-Bold.ttf") format("truetype");
 }
- */
+
+// Regular font (fw-400)
+@font-face {
+  font-family: var(--ff-base);
+  src: url("../fonts/woff/NunitoSans_10pt-Regular.woff") format("woff"),
+    url("../fonts/ttf/NunitoSans_10pt-Regular.ttf") format("truetype");
+}
+
+// Light font (fw-200)
+@font-face {
+  font-family: var(--ff-base);
+  src: url("../fonts/woff/NunitoSans_10pt-Light.woff") format("woff"),
+    url("../fonts/ttf/NunitoSans_10pt-Light.ttf") format("truetype");
+}
+
 :root {
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  font-family: var(--ff-base);
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+h4,
+h5,
+h6 {
+  line-height: 1.65;
 }
 
 html {

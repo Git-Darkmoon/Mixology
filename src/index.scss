@@ -1,8 +1,52 @@
 @use "../src/scss/variables";
-@use "../src/scss/mixins";
+@use "../src/scss/mixins" as mixin;
 @use "../src/scss/reset";
 
 body {
   background-color: var(--clr-bg);
-  color: var(--clr-primary);
+  color: var(--clr-whiteFaded);
+  min-width: 100dvh;
+}
+
+// HomeLayout Styling
+
+.navbar {
+  width: 100%;
+  height: var(--layout-height);
+  @include mixin.myFlex(space-between);
+  padding-inline: var(--pd-x);
+
+  .logo {
+    font-family: var(--ff-logo);
+    font-size: var(--fs-5);
+    font-weight: var(--fw-bold);
+
+    color: var(--clr-green);
+    text-shadow: 0 0 2.125rem var(--clr-green);
+  }
+
+  .nav-links {
+    @include mixin.myFlex();
+    gap: 2rem;
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-0);
+  }
+  .nav-link {
+    color: var(--clr-greenFaded);
+  }
+  .active {
+    color: var(--clr-green);
+    text-shadow: 0 0 0.35rem var(--clr-green);
+  }
+}
+
+.footer {
+  width: 100%;
+  @include mixin.myFlex();
+  height: var(--layout-height);
+
+  a {
+    color: var(--clr-green);
+    text-shadow: 0 0 0.35rem var(--clr-greenFaded);
+  }
 }

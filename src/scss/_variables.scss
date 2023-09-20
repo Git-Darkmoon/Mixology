@@ -1,13 +1,21 @@
 :root {
   --clr-bg: #111823;
 
+  --clr-white: #fafafa;
+  --clr-whiteFaded: hsla(0, 0%, 98%, 0.5);
   --clr-orange: #f7b054;
   --clr-green: #77dd77;
+  --clr-greenFaded: hsl(120, 60%, 67%, 0.5);
+  --clr-pink: #f4b4fb;
 
   --clr-primary: var(--clr-orange);
   --clr-secondary: var(--clr-green);
 
   --ff-base: "Nunito Sans", sans-serif;
+  --ff-logo: "Italiana", serif;
+  --fw-bold: 700;
+  --fw-regular: 400;
+  --fw-light: 200;
 
   --fs-0: clamp(0.88rem, calc(0.82rem + 0.25vw), 1.13rem);
   --fs-1: clamp(1.05rem, calc(0.98rem + 0.33vw), 1.38rem);
@@ -15,6 +23,9 @@
   --fs-3: clamp(1.51rem, calc(1.39rem + 0.57vw), 2.07rem);
   --fs-4: clamp(1.81rem, calc(1.65rem + 0.73vw), 2.53rem);
   --fs-5: clamp(2.18rem, calc(1.97rem + 0.94vw), 3.1rem);
+
+  --pd-x: 4rem;
+  --layout-height: 4.5rem;
 }
 
 /* Colors alt: #F4B4FB , #FFF390 , #a3ffae */

@@ -5,7 +5,6 @@
 body {
   background-color: var(--clr-bg);
   color: var(--clr-whiteFaded);
-  min-width: 100dvh;
 }
 
 // HomeLayout Styling
@@ -51,7 +50,7 @@ body {
   }
 }
 
-.landing-spinner {
+.landing {
   @include mixin.myFlex(space-around);
   width: 100%;
   height: calc(100dvh - (var(--layout-height) * 2));
@@ -70,6 +69,7 @@ $lastRing: 3;
 
 .orbit {
   position: relative;
+  width: 100%;
 }
 
 .orbit-icon {
@@ -77,17 +77,16 @@ $lastRing: 3;
   height: $orbitItemSize;
   line-height: $orbitItemSize;
   font-size: var(--fs-0);
-  border-radius: 50%;
-  // background: var(--clr-whiteFaded);
   color: var(--clr-green);
   text-align: center;
   display: block;
+  text-indent: -50%;
 }
 
 .orbit-wrap {
   height: calc(100dvh - (var(--layout-height) * 2));
   list-style: none;
-  font-size: 1.3em;
+  // font-size: 1.3em;
 
   > li {
     position: absolute;
@@ -126,7 +125,7 @@ ul[class^="ring"] {
 
     .ring-#{$numRing} > *:nth-of-type(#{$s}) {
       transform: rotate($s * $deg)
-        translate(12.5em - ($numRing * 2.5))
+        translate(15em - ($numRing * 2.5))
         rotate(-$s * $deg);
     }
   }
@@ -136,8 +135,8 @@ ul[class^="ring"] {
 @for $i from 0 through $lastRing {
   .ring-#{$i} {
     // decrease each ring in size
-    width: 25em - ($i * 5);
-    height: 25em - ($i * 5);
+    width: 30em - ($i * 5);
+    height: 30em - ($i * 5);
     animation: clockwiseRotate 35s - ($i * 5) linear infinite;
 
     i {
@@ -173,8 +172,8 @@ ul[class^="ring"] {
 .orbit-center {
   z-index: 5;
   font-size: 2em;
-  width: 4em;
-  height: 4em;
+  width: 5em;
+  height: 5em;
   line-height: 1.8em;
   text-align: center;
 
@@ -196,6 +195,35 @@ ul[class^="ring"] {
   height: 0;
   * {
     transform: translate(0, 0);
+  }
+}
+
+@media (width <= 48rem) {
+  @mixin orbit-item($numItems, $numRing) {
+    @for $s from 1 through $numItems {
+      // Spread items over the ring
+      $deg: calc(380deg / $numItems);
+
+      .ring-#{$numRing} > *:nth-of-type(#{$s}) {
+        transform: rotate($s * $deg)
+          translate(11.5em - ($numRing * 2.5))
+          rotate(-$s * $deg);
+      }
+    }
+  }
+
+  @for $i from 0 through $lastRing {
+    .ring-#{$i} {
+      // decrease each ring in size
+      width: 23em - ($i * 5);
+      height: 23em - ($i * 5);
+      animation: clockwiseRotate 35s - ($i * 5) linear infinite;
+    }
+    @include orbit-item(map-get($map, ring-#{$i}), $i);
+  }
+  .orbit-center {
+    width: 2.5em;
+    height: 2.5em;
   }
 }
 

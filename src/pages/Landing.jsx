@@ -1,6 +1,6 @@
 function Landing() {
   return (
-    <section className="landing-spinner">
+    <section className="landing">
       <div className="orbit">
         <ul className="orbit-wrap">
           <li className="orbit-center">
@@ -51,7 +51,7 @@ function Landing() {
           <li>
             <ul className="ring-3">
               <li>
-                <i className="orbit-icon "></i>
+                <i className="orbit-icon ">Colada</i>
               </li>
               <li>
                 <i className="orbit-icon "></i>
@@ -63,7 +63,16 @@ function Landing() {
           </li>
         </ul>
       </div>
-      <h1>Cool round</h1>
+      <article className="info-content">
+        <h1>Discover Your New Poison</h1>
+        <p>
+          Welcome to the Cocktail Search Page! Your journey to finding the
+          perfect thirst-quenching concoction starts now. Engulf yourself in our
+          selection of tantalizing, potent, and at times outright bizarre
+          libations that will leave you asking, &quot;Why didn&apos;t I find
+          this sooner?&quot;
+        </p>
+      </article>
     </section>
   )
 }

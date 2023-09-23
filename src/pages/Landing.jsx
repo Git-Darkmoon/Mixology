@@ -66,7 +66,7 @@ function Landing() {
             </ul>
           </li>
           <li>
-            <ul className="ring-3">
+            {/* <ul className="ring-3">
               <li>
                 <i className="orbit-icon fa fa-coffee"></i>
               </li>
@@ -76,7 +76,7 @@ function Landing() {
               <li>
                 <i className="orbit-icon fa fa-heart-o"></i>
               </li>
-            </ul>
+            </ul> */}
           </li>
         </ul>
       </div>

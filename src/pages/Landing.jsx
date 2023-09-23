@@ -4,79 +4,62 @@ function Landing() {
       <div className="orbit">
         <ul className="orbit-wrap">
           <li className="orbit-center">
-            <i className="orbit-center__icon fa fa-code"></i>
-          </li>
-
-          <li>
-            <ul className="ring-0">
-              <li>
-                <i className="orbit-icon fa fa-git"></i>
-              </li>
-              <li>
-                <i className="orbit-icon fa fa-free-code-camp"></i>
-              </li>
-              <li>
-                <i className="orbit-icon fa fa-meetup"></i>
-              </li>
-              <li>
-                <i className="orbit-icon fa fa-codepen"></i>
-              </li>
-            </ul>
+            <i className="orbit-center__icon "></i>
           </li>
 
           <li>
             <ul className="ring-1">
               <li>
-                <i className="orbit-icon fa fa-podcast"></i>
+                <i className="orbit-icon ">Mojito</i>
               </li>
               <li>
-                <i className="orbit-icon fa fa-css3"></i>
+                <i className="orbit-icon ">Cosmopolitan</i>
               </li>
               <li>
-                <i className="orbit-icon fa fa-html5"></i>
+                <i className="orbit-icon ">Martini</i>
               </li>
             </ul>
           </li>
           <li>
             <ul className="ring-2">
               <li>
-                <i className="orbit-icon fa fa-windows"></i>
+                <i className="orbit-icon ">Negroni</i>
               </li>
               <li>
-                <i className="orbit-icon fa fa-safari"></i>
+                <i className="orbit-icon ">Aperol</i>
               </li>
               <li>
-                <i className="orbit-icon fa fa-edge"></i>
+                <i className="orbit-icon ">Margarita</i>
               </li>
               <li>
-                <i className="orbit-icon fa fa-linux"></i>
+                <i className="orbit-icon ">Manhattan</i>
               </li>
               <li>
-                <i className="orbit-icon fa fa-apple"></i>
+                <i className="orbit-icon ">Gimlet</i>
               </li>
               <li>
-                <i className="orbit-icon fa fa-chrome"></i>
+                <i className="orbit-icon ">Daiquiri</i>
               </li>
               <li>
-                <i className="orbit-icon fa fa-android"></i>
+                <i className="orbit-icon "></i>
               </li>
               <li>
-                <i className="orbit-icon fa fa-firefox"></i>
+                <i className="orbit-icon "></i>
               </li>
             </ul>
           </li>
           <li>
-            {/* <ul className="ring-3">
+            <ul className="ring-3">
               <li>
-                <i className="orbit-icon fa fa-coffee"></i>
+                <i className="orbit-icon "></i>
               </li>
               <li>
-                <i className="orbit-icon fa fa-terminal"></i>
+                <i className="orbit-icon "></i>
               </li>
               <li>
-                <i className="orbit-icon fa fa-heart-o"></i>
+                <i className="orbit-icon "></i>
               </li>
-            </ul> */}
+            </ul>
           </li>
         </ul>
       </div>

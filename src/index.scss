@@ -55,32 +55,6 @@ body {
   @include mixin.myFlex(space-around);
   width: 100%;
   height: calc(100dvh - (var(--layout-height) * 2));
-
-  // .outer {
-  //   --size: 2rem;
-  //   --circleRadius: 100px;
-
-  //   position: absolute;
-  //   top: calc(var(--size) / 2);
-  //   left: calc(var(--size) / 2);
-  //   width: var(--size);
-  //   aspect-ratio: 1;
-  //   background-color: var(--clr-orange);
-  //   transform: translate(
-  //     calc(cos(var(--degrees)) * 100px),
-  //     calc((sin(var(--degrees)) * var(--circleRadius)))
-  //   );
-  // }
-
-  //   $outerElements: 6;
-  //   @for $i from 1 through $outerElements {
-  //     .outer:nth-of-type(#{$i}) {
-  //       --degrees: #{$i} * (360deg / #{$outerElements});
-  //       animation: rotator 15s linear infinite;
-  //     }
-
-  //   }
-  // }
 }
 
 /* Orbit Code */
@@ -102,16 +76,16 @@ $lastRing: 3;
   width: $orbitItemSize;
   height: $orbitItemSize;
   line-height: $orbitItemSize;
-  font-size: var(--fs-2);
+  font-size: var(--fs-0);
   border-radius: 50%;
-  background: #ccc;
-  color: #fff;
+  // background: var(--clr-whiteFaded);
+  color: var(--clr-green);
   text-align: center;
   display: block;
 }
 
 .orbit-wrap {
-  height: calc(85dvh - (var(--layout-height) * 2));
+  height: calc(100dvh - (var(--layout-height) * 2));
   list-style: none;
   font-size: 1.3em;
 
@@ -124,7 +98,7 @@ $lastRing: 3;
     &:hover {
       ul {
         border-width: 2px;
-        border-color: #fff;
+        border-color: var(--clr-white);
       }
       ~ li ul {
         border-color: rgba(255, 255, 255, 0.2);
@@ -175,7 +149,7 @@ ul[class^="ring"] {
 }
 
 %ring {
-  border: solid 1px rgba(33, 150, 243, 0.8);
+  border: solid 1px var(--clr-whiteFaded);
   position: relative;
   padding: 0;
   border-radius: 50%;
@@ -199,11 +173,14 @@ ul[class^="ring"] {
 .orbit-center {
   z-index: 5;
   font-size: 2em;
-  width: 1.8em;
-  height: 1.8em;
+  width: 4em;
+  height: 4em;
   line-height: 1.8em;
   text-align: center;
-  background: hotpink;
+
+  background-image: url("./assets/wineglass-with-liquor-green-smoke_23-2147905764.jpg");
+  background-position: center;
+  background-size: cover;
   border-radius: 50%;
 
   &:hover .orbit-center__icon {
@@ -243,33 +220,9 @@ animations
   }
 }
 
-/* 
-icons 
-*/
-$icons: (
-  ("heart-o", #b71c1c, white),
-  ("coffee", #4caf50, #cddc39),
-  ("safari", white, darkslateblue),
-  ("firefox", #1565c0, #ff8f00),
-  ("chrome", #fbc02d, #ef6c00),
-  ("edge", #03a9f4, white),
-  ("android", snow, limegreen),
-  ("apple", #444, white),
-  ("linux", white, #222),
-  ("windows", white, #03a9f4),
-  ("terminal", #222, #fff),
-  ("html5", white, #e65100),
-  ("css3", white, #2196f3),
-  ("git", #222, white),
-  ("free-code-camp", green, white),
-  ("meetup", red, white),
-  ("podcast", red, white),
-  ("codepen", #333, white)
-);
-
-@each $icon in $icons {
-  .fa-#{nth($icon, 1)} {
-    background: nth($icon, 2);
-    color: nth($icon, 3);
-  }
-}
+// @each $icon in $icons {
+//   .fa-#{nth($icon, 1)} {
+//     background: nth($icon, 2);
+//     color: nth($icon, 3);
+//   }
+// }

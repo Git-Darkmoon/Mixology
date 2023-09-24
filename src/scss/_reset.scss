@@ -54,6 +54,11 @@ html {
   scroll-behavior: smooth;
 }
 
+::selection {
+  background-color: var(--clr-green);
+  color: var(--clr-bg);
+}
+
 img,
 svg {
   display: block;

@@ -47,12 +47,18 @@ body {
   a {
     color: var(--clr-green);
     text-shadow: 0 0 0.35rem var(--clr-greenFaded);
+    transition: var(--transition);
+
+    &:hover {
+      color: var(--clr-greenFaded);
+    }
   }
 }
 
 .landing {
-  @include mixin.myFlex(space-around);
+  @include mixin.myFlex(center);
   width: 100%;
+  padding-inline: var(--pd-x);
   height: calc(100dvh - (var(--layout-height) * 2));
 }
 
@@ -254,3 +260,16 @@ animations
 //     color: nth($icon, 3);
 //   }
 // }
+
+.info-content {
+  width: 100%;
+  h1 {
+    color: var(--clr-green);
+    font-size: var(--fs-4);
+  }
+  p {
+    width: 70ch;
+    line-height: 1.5;
+    font-size: var(--fs-1);
+  }
+}

@@ -66,8 +66,8 @@ function Landing() {
       <article className="info-content">
         <h1>Discover Your New Poison</h1>
         <p>
-          Welcome to the Cocktail Search Page! Your journey to finding the
-          perfect thirst-quenching concoction starts now. Engulf yourself in our
+          Welcome to Mixology! Your journey to finding the perfect
+          thirst-quenching concoction starts now. Engulf yourself in our
           selection of tantalizing, potent, and at times outright bizarre
           libations that will leave you asking, &quot;Why didn&apos;t I find
           this sooner?&quot;

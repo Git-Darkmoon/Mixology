@@ -59,6 +59,21 @@ html {
   color: var(--clr-bg);
 }
 
+/* Webkit Browsers */
+::-webkit-scrollbar {
+  width: 0.35rem;
+  background-color: var(--clr-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--clr-greenFaded);
+  border-radius: 10rem;
+
+  &:hover {
+    background-color: var(--clr-green);
+  }
+}
+
 img,
 svg {
   display: block;
@@ -78,4 +93,5 @@ button {
   border: none;
   background-color: transparent;
   cursor: pointer;
+  transition: var(--transition);
 }

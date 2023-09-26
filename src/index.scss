@@ -55,11 +55,14 @@ body {
   }
 }
 
-.landing {
-  @include mixin.myFlex(center);
-  width: 100%;
+.container {
   padding-inline: var(--pd-x);
-  height: calc(100dvh - (var(--layout-height) * 2));
+}
+
+.landing {
+  width: 100%;
+  min-height: calc(100dvh - (var(--layout-height) * 2));
+  @include mixin.myFlex(center);
 }
 
 /* Orbit Code */
@@ -183,7 +186,7 @@ ul[class^="ring"] {
   line-height: 1.8em;
   text-align: center;
 
-  background-image: url("./assets/wineglass-with-liquor-green-smoke_23-2147905764.jpg");
+  background-image: url("./assets/wineglass.webp");
   background-position: center;
   background-size: cover;
   border-radius: 50%;
@@ -271,5 +274,114 @@ animations
     width: 70ch;
     line-height: 1.5;
     font-size: var(--fs-1);
+  }
+}
+
+// Search Form styling.
+
+.search-form {
+  min-width: 320px;
+  width: 30vmax;
+  max-width: 992px;
+
+  height: 6rem;
+
+  background-color: lighten(#111823, 5%);
+  box-shadow: 0 7px 20px darken(#111823, 3%);
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: var(--radius);
+  @include mixin.myFlex(center);
+
+  input,
+  button {
+    font-size: var(--fs-1);
+    padding: 0.5rem;
+  }
+
+  input {
+    font-size: var(--fs-1);
+    border-radius: var(--radius) 0 0 var(--radius);
+    background-color: var(--clr-white);
+    color: var(--clr-bg);
+    border: none;
+    &:focus {
+      outline: 0.1rem solid var(--clr-green);
+    }
+  }
+
+  button {
+    background-color: var(--clr-green);
+    border-radius: 0 var(--radius) var(--radius) 0;
+
+    &:hover {
+      background-color: var(--clr-greenFaded);
+    }
+  }
+}
+
+// Cocktail card styling
+
+.cards-container {
+  margin-top: var(--pd-x);
+  width: 100%;
+  @include mixin.myFlex();
+  flex-wrap: wrap;
+  gap: 2rem;
+
+  .cocktail-card {
+    user-select: none;
+    min-width: 350px;
+    max-width: 5vmax;
+    aspect-ratio: 1;
+    background-color: darken(#111823, 3%);
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+
+    .cocktail-name {
+      font-size: var(--fs-2);
+      text-align: center;
+      color: var(--clr-green);
+    }
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-color: var(--clr-bg);
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    &:hover::after {
+      opacity: 0.7;
+    }
+
+    .cocktail-btn {
+      position: absolute;
+      background-color: #fff;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1000000000;
+      opacity: 0;
+      transition: var(--transition);
+
+      font-size: var(--fs-1);
+      padding: 1rem;
+      border-radius: var(--radius);
+      background-color: var(--clr-green);
+      color: var(--clr-bg);
+    }
+
+    &:hover .cocktail-btn {
+      opacity: 1;
+    }
   }
 }

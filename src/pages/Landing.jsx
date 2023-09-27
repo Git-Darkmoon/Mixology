@@ -2,6 +2,12 @@ import { useQuery } from "@tanstack/react-query"
 import CocktailList from "../components/CocktailList"
 import SearchForm from "../components/SearchForm"
 import { useLoaderData } from "react-router-dom"
+import {
+  classicCocktails,
+  modernCocktails,
+  tropicalCocktails,
+  otherCocktails,
+} from "../orbitCocktails"
 
 const cocktailSearchUrl =
   "https://www.thecocktaildb.com/api/json/v1/1/search.php?s="
@@ -43,57 +49,47 @@ function Landing() {
             </li>
 
             <li>
+              <ul className="ring-0">
+                {otherCocktails.map((classic) => {
+                  return (
+                    <li key={crypto.randomUUID()}>
+                      <i className="orbit-icon">{classic}</i>
+                    </li>
+                  )
+                })}
+              </ul>
+            </li>
+            <li>
               <ul className="ring-1">
-                <li>
-                  <i className="orbit-icon ">Mojito</i>
-                </li>
-                <li>
-                  <i className="orbit-icon ">Cosmopolitan</i>
-                </li>
-                <li>
-                  <i className="orbit-icon ">Martini</i>
-                </li>
+                {classicCocktails.map((classic) => {
+                  return (
+                    <li key={crypto.randomUUID()}>
+                      <i className="orbit-icon">{classic}</i>
+                    </li>
+                  )
+                })}
               </ul>
             </li>
             <li>
               <ul className="ring-2">
-                <li>
-                  <i className="orbit-icon ">Negroni</i>
-                </li>
-                <li>
-                  <i className="orbit-icon ">Aperol</i>
-                </li>
-                <li>
-                  <i className="orbit-icon ">Margarita</i>
-                </li>
-                <li>
-                  <i className="orbit-icon ">Manhattan</i>
-                </li>
-                <li>
-                  <i className="orbit-icon ">Gimlet</i>
-                </li>
-                <li>
-                  <i className="orbit-icon ">Daiquiri</i>
-                </li>
-                <li>
-                  <i className="orbit-icon "></i>
-                </li>
-                <li>
-                  <i className="orbit-icon "></i>
-                </li>
+                {modernCocktails.map((modern) => {
+                  return (
+                    <li key={crypto.randomUUID()}>
+                      <i className="orbit-icon">{modern}</i>
+                    </li>
+                  )
+                })}
               </ul>
             </li>
             <li>
               <ul className="ring-3">
-                <li>
-                  <i className="orbit-icon ">Colada</i>
-                </li>
-                <li>
-                  <i className="orbit-icon "></i>
-                </li>
-                <li>
-                  <i className="orbit-icon "></i>
-                </li>
+                {tropicalCocktails.map((tropical) => {
+                  return (
+                    <li key={crypto.randomUUID()}>
+                      <i className="orbit-icon">{tropical}</i>
+                    </li>
+                  )
+                })}
               </ul>
             </li>
           </ul>

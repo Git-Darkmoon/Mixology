@@ -65,16 +65,27 @@ body {
   @include mixin.myFlex(center);
 }
 
+@media (width <= 74rem) {
+  .container {
+    padding-inline: calc(var(--pd-x) / 2);
+  }
+
+  .landing {
+    flex-direction: column;
+  }
+}
+
 /* Orbit Code */
 
 $orbitItemSize: 1.6em;
 $map: (
-  ring-0: 4,
-  ring-1: 3,
-  ring-2: 8,
-  ring-3: 3,
+  ring-0: 5,
+  ring-1: 5,
+  ring-2: 5,
+  ring-3: 4,
 );
 $lastRing: 3;
+$orbitTime: 38s;
 
 .orbit {
   position: relative;
@@ -146,10 +157,10 @@ ul[class^="ring"] {
     // decrease each ring in size
     width: 30em - ($i * 5);
     height: 30em - ($i * 5);
-    animation: clockwiseRotate 35s - ($i * 5) linear infinite;
+    animation: clockwiseRotate $orbitTime - ($i * 5) linear infinite;
 
     i {
-      animation: counterClockwiseRotate 35s - ($i * 5) linear infinite;
+      animation: counterClockwiseRotate $orbitTime - ($i * 5) linear infinite;
     }
   }
 
@@ -226,13 +237,22 @@ ul[class^="ring"] {
       // decrease each ring in size
       width: 23em - ($i * 5);
       height: 23em - ($i * 5);
-      animation: clockwiseRotate 35s - ($i * 5) linear infinite;
+      animation: clockwiseRotate $orbitTime - ($i * 5) linear infinite;
+      i {
+        animation: counterClockwiseRotate $orbitTime - ($i * 5) linear infinite;
+      }
     }
     @include orbit-item(map-get($map, ring-#{$i}), $i);
   }
   .orbit-center {
     width: 2.5em;
     height: 2.5em;
+  }
+}
+
+@media (width <= 37.5rem) {
+  .ring-0 {
+    display: none;
   }
 }
 
@@ -271,7 +291,7 @@ animations
     font-size: var(--fs-4);
   }
   p {
-    width: 70ch;
+    max-width: 70ch;
     line-height: 1.5;
     font-size: var(--fs-1);
   }
@@ -333,11 +353,17 @@ animations
     user-select: none;
     min-width: 350px;
     max-width: 5vmax;
-    aspect-ratio: 1;
     background-color: darken(#111823, 3%);
+    box-shadow: 0 7px 20px darken(#111823, 3%);
+
     position: relative;
     border-radius: var(--radius);
     overflow: hidden;
+    transition: var(--transition);
+
+    &:hover {
+      scale: 1.015;
+    }
 
     .cocktail-name {
       font-size: var(--fs-2);

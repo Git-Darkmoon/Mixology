@@ -1,8 +1,9 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
-import { Landing, About, Cocktail, Error, HomeLayout } from "./pages"
+import { Landing, About, Error, HomeLayout, CocktailDetails } from "./pages"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 
 import { loader as landingLoader } from "./pages/Landing"
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import { loader as singleCocktailLoader } from "./pages/CocktailDetails"
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -21,7 +22,8 @@ const router = createBrowserRouter([
       { index: true, element: <Landing />, loader: landingLoader(queryClient) },
       {
         path: "cocktail/:id",
-        element: <Cocktail />,
+        element: <CocktailDetails />,
+        loader: singleCocktailLoader(queryClient),
       },
       { path: "about", element: <About /> },
     ],

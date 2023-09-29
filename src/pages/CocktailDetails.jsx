@@ -49,11 +49,17 @@ function CocktailDetails() {
 
   return (
     <main className="container">
-      <h1>{name}</h1>
-      <img src={image} alt="" />
-      <h3>{info}</h3>
-      <h5>{category}</h5>
-      <h6>{glass}</h6>
+      <section>
+        <picture>
+          <img className="cocktail_details__img" src={image} alt={name} />
+        </picture>
+        <article>
+          <h1 className="coctail_details__name">{name}</h1>
+          <h3 className="cocktail_details__desc">{info}</h3>
+          <h5 className="cocktail_details__category">{category}</h5>
+          <h6 className="cocktail_details__glass">{glass}</h6>
+        </article>
+      </section>
     </main>
   )
 }

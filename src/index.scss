@@ -3,7 +3,7 @@
 @use "../src/scss/reset";
 
 body {
-  background-color: var(--clr-bg);
+  background-image: linear-gradient(to right, #434343 0%, #000 100%);
   color: var(--clr-whiteFaded);
 }
 
@@ -61,7 +61,7 @@ body {
 
 .landing {
   width: 100%;
-  min-height: calc(100dvh - (var(--layout-height) * 2));
+  min-height: calc(100dvh - (var(--layout-height)));
   @include mixin.myFlex(center);
 }
 
@@ -201,6 +201,7 @@ ul[class^="ring"] {
   background-position: center;
   background-size: cover;
   border-radius: 50%;
+  filter: contrast(0.9);
 
   &:hover .orbit-center__icon {
     transform: rotateZ(0deg);
@@ -306,9 +307,11 @@ animations
 
   height: 6rem;
 
-  background-color: lighten(#111823, 5%);
-  box-shadow: 0 7px 20px darken(#111823, 3%);
+  background-color: hsla(0, 0%, 50%, 0.25);
+  box-shadow: 0 7px 16px darken(#111823, 3%);
   margin: 0 auto;
+  margin-block-end: 1.5rem;
+
   padding: 1rem;
   border-radius: var(--radius);
   @include mixin.myFlex(center);
@@ -325,8 +328,13 @@ animations
     background-color: var(--clr-white);
     color: var(--clr-bg);
     border: none;
+
+    &::-webkit-search-cancel-button:hover {
+      cursor: pointer;
+    }
+
     &:focus {
-      outline: 0.1rem solid var(--clr-green);
+      outline: 0.2rem solid var(--clr-greenFaded);
     }
   }
 
@@ -343,7 +351,7 @@ animations
 // Cocktail card styling
 
 .cards-container {
-  margin-top: var(--pd-x);
+  margin-block: var(--pd-x);
   width: 100%;
   @include mixin.myFlex();
   flex-wrap: wrap;
@@ -366,9 +374,13 @@ animations
     }
 
     .cocktail-name {
-      font-size: var(--fs-2);
+      font-family: var(--ff-logo);
+      font-size: var(--fs-3);
+      font-weight: var(--fw-bold);
       text-align: center;
+
       color: var(--clr-green);
+      text-shadow: 0 0 2.125rem var(--clr-green);
     }
 
     &::after {
@@ -411,3 +423,5 @@ animations
     }
   }
 }
+
+// Cocktail Details styling

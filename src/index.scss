@@ -379,7 +379,7 @@ animations
       font-weight: var(--fw-bold);
       text-align: center;
 
-      color: var(--clr-green);
+      color: var(--clr-white);
       text-shadow: 0 0 2.125rem var(--clr-green);
     }
 
@@ -398,16 +398,15 @@ animations
     }
 
     &:hover::after {
-      opacity: 0.7;
+      opacity: 0.5;
     }
 
     .cocktail-btn {
       position: absolute;
-      background-color: #fff;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      z-index: 1000000000;
+      z-index: 1000;
       opacity: 0;
       transition: var(--transition);
 
@@ -425,3 +424,12 @@ animations
 }
 
 // Cocktail Details styling
+
+.cocktail_details {
+  width: 100%;
+  height: calc(100dvh - (var(--layout-height) * 2));
+  @include mixin.myFlex(space-around);
+}
+.cocktail_details__img {
+  height: calc(100dvh - (var(--layout-height) * 2));
+}

@@ -5,13 +5,7 @@ export const classicCocktails = [
   "Daiquiri",
   "Manhattan",
 ]
-export const tropicalCocktails = [
-  "MaiTai",
-  "PiñaColada",
-  "Zombie",
-  "Mojito",
-  "Hurricane",
-]
+export const tropicalCocktails = ["MaiTai", "PiñaColada", "Zombie", "Mojito"]
 export const modernCocktails = [
   "Cosmopolitan",
   "Margarita",

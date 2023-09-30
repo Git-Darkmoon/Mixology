@@ -49,7 +49,7 @@ function CocktailDetails() {
 
   return (
     <main className="container">
-      <section>
+      <section className="cocktail_details">
         <picture>
           <img className="cocktail_details__img" src={image} alt={name} />
         </picture>

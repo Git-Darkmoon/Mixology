@@ -6,10 +6,14 @@ function CocktailCard({ id, name, image }) {
       <picture>
         <img src={image} alt={name} className="cocktail-image" />
       </picture>
-      <Link to={`/cocktail/${id}`} className="cocktail-btn">
-        Details
-      </Link>
-      <h1 className="cocktail-name">{name}</h1>
+
+      <div className="cocktail-card__info">
+        <h1 className="cocktail-name">{name}</h1>
+
+        <Link to={`/cocktail/${id}`} className="cocktail-btn">
+          Details
+        </Link>
+      </div>
     </article>
   )
 }

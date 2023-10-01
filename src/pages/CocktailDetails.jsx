@@ -41,11 +41,21 @@ function CocktailDetails() {
   const {
     strDrink: name,
     strDrinkThumb: image,
-    strAlcoholic: info,
+    strAlcoholic: alcoholic,
     strCategory: category,
     strGlass: glass,
-    // strInstructions: instructions,
+    strInstructions: instructions,
   } = myCocktail
+
+  const cocktailKeys = Object.keys(myCocktail)
+
+  const validIngredientsKeys = cocktailKeys.filter((key) => {
+    return key.startsWith("strIngredient") && myCocktail[key] !== null
+  })
+
+  const validIngredients = validIngredientsKeys.map((ingredientKey) => {
+    return myCocktail[ingredientKey]
+  })
 
   return (
     <main className="container">
@@ -53,11 +63,28 @@ function CocktailDetails() {
         <picture>
           <img className="cocktail_details__img" src={image} alt={name} />
         </picture>
-        <article>
-          <h1 className="coctail_details__name">{name}</h1>
-          <h3 className="cocktail_details__desc">{info}</h3>
-          <h5 className="cocktail_details__category">{category}</h5>
-          <h6 className="cocktail_details__glass">{glass}</h6>
+        <article className="cocktail_details__info">
+          <h1 className="cocktail_details__name">{name}</h1>
+          <p className="cocktail_details__instructions">{instructions}</p>
+          <div className="cocktail_details__serving">
+            <div className="cocktail_details__alcoholic detailsCard">
+              <h4 className="details_label">Contains 🍸</h4>
+              <h4 className="details_content">{alcoholic}</h4>
+            </div>
+            <div className="cocktail_details__category detailsCard">
+              <h4 className="details_label">Category 🦄</h4>
+              <h4 className="details_content">{category}</h4>
+            </div>
+            <div className="cocktail_details__glass detailsCard">
+              <h4 className="details_label">Glass 🥂</h4>
+              <h4 className="details_content">{glass}</h4>
+            </div>
+          </div>
+          <ul className="cocktail_details__ingredients">
+            {validIngredients.map((ingredient) => {
+              return <li key={crypto.randomUUID()}>{ingredient}</li>
+            })}
+          </ul>
         </article>
       </section>
     </main>

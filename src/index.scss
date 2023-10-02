@@ -57,22 +57,13 @@ body {
 
 .container {
   padding-inline: var(--pd-x);
+  min-height: calc(100dvh - (var(--layout-height)));
 }
 
 .landing {
   width: 100%;
   min-height: calc(100dvh - (var(--layout-height)));
   @include mixin.myFlex(center);
-}
-
-@media (width <= 74rem) {
-  .container {
-    padding-inline: calc(var(--pd-x) / 2);
-  }
-
-  .landing {
-    flex-direction: column;
-  }
 }
 
 /* Orbit Code */
@@ -219,44 +210,6 @@ ul[class^="ring"] {
   }
 }
 
-@media (width <= 48rem) {
-  @mixin orbit-item($numItems, $numRing) {
-    @for $s from 1 through $numItems {
-      // Spread items over the ring
-      $deg: calc(380deg / $numItems);
-
-      .ring-#{$numRing} > *:nth-of-type(#{$s}) {
-        transform: rotate($s * $deg)
-          translate(11.5em - ($numRing * 2.5))
-          rotate(-$s * $deg);
-      }
-    }
-  }
-
-  @for $i from 0 through $lastRing {
-    .ring-#{$i} {
-      // decrease each ring in size
-      width: 23em - ($i * 5);
-      height: 23em - ($i * 5);
-      animation: clockwiseRotate $orbitTime - ($i * 5) linear infinite;
-      i {
-        animation: counterClockwiseRotate $orbitTime - ($i * 5) linear infinite;
-      }
-    }
-    @include orbit-item(map-get($map, ring-#{$i}), $i);
-  }
-  .orbit-center {
-    width: 2.5em;
-    height: 2.5em;
-  }
-}
-
-@media (width <= 37.5rem) {
-  .ring-0 {
-    display: none;
-  }
-}
-
 /* 
 animations 
 */
@@ -310,7 +263,7 @@ animations
   background-color: hsla(0, 0%, 50%, 0.25);
   box-shadow: 0 7px 16px darken(#111823, 3%);
   margin: 0 auto;
-  margin-block-end: 1.5rem;
+  margin-block: 1.5rem;
 
   padding: 1rem;
   border-radius: var(--radius);
@@ -323,6 +276,7 @@ animations
   }
 
   input {
+    width: 100%;
     font-size: var(--fs-1);
     border-radius: var(--radius) 0 0 var(--radius);
     background-color: var(--clr-white);
@@ -405,11 +359,11 @@ animations
 
 .cocktail_details {
   width: 100%;
-  height: calc(100dvh - (var(--layout-height) * 2));
+  min-height: calc(100dvh - (var(--layout-height) * 2));
   @include mixin.myFlex(space-between);
 
   &__info {
-    width: 50%;
+    width: 52%;
   }
 
   &__name {
@@ -426,6 +380,7 @@ animations
   &__serving {
     width: 100%;
     @include mixin.myFlex(start);
+    flex-wrap: wrap;
     margin-block: 2rem;
     gap: 5rem;
   }
@@ -446,6 +401,21 @@ animations
     color: var(--clr-whiteFaded);
     font-size: var(--fs-0);
   }
+
+  &__preparation {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__ingredients {
+    font-size: var(--fs-0);
+    line-height: 1.5;
+  }
+}
+
+.ingredients_title {
+  font-size: var(--fs-2);
+  color: var(--clr-green);
 }
 
 .cocktail_details__img {
@@ -453,4 +423,80 @@ animations
   height: calc(100dvh - (var(--layout-height) * 2));
   max-height: 30vmax;
   border-radius: var(--radius);
+}
+
+@media (width <= 48rem) {
+  @mixin orbit-item($numItems, $numRing) {
+    @for $s from 1 through $numItems {
+      // Spread items over the ring
+      $deg: calc(380deg / $numItems);
+
+      .ring-#{$numRing} > *:nth-of-type(#{$s}) {
+        transform: rotate($s * $deg)
+          translate(11.5em - ($numRing * 2.5))
+          rotate(-$s * $deg);
+      }
+    }
+  }
+
+  @for $i from 0 through $lastRing {
+    .ring-#{$i} {
+      // decrease each ring in size
+      width: 23em - ($i * 5);
+      height: 23em - ($i * 5);
+      animation: clockwiseRotate $orbitTime - ($i * 5) linear infinite;
+      i {
+        animation: counterClockwiseRotate $orbitTime - ($i * 5) linear infinite;
+      }
+    }
+    @include orbit-item(map-get($map, ring-#{$i}), $i);
+  }
+  .orbit-center {
+    width: 2.5em;
+    height: 2.5em;
+  }
+}
+
+@media (width <= 37.5rem) {
+  :root {
+    --pd-x: 1.5rem;
+  }
+
+  .ring-0 {
+    display: none;
+  }
+}
+
+@media (width <= 48rem) {
+  .cocktail_details {
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+
+    &__info {
+      width: 100%;
+    }
+
+    &__img {
+      max-height: 20rem;
+      margin-block-start: 3rem;
+    }
+
+    &__serving {
+      gap: 2rem;
+    }
+  }
+}
+
+@media (width <= 74rem) {
+  :root {
+    --pd-x: 2rem;
+  }
+
+  .landing {
+    flex-direction: column;
+  }
+  .search-form {
+    width: 55vw;
+  }
 }

@@ -57,6 +57,14 @@ function CocktailDetails() {
     return myCocktail[ingredientKey]
   })
 
+  const validMeasuresKeys = cocktailKeys.filter((key) => {
+    return key.startsWith("strMeasure") && myCocktail[key] !== null
+  })
+
+  const validMeasures = validMeasuresKeys.map((measure) => {
+    return myCocktail[measure]
+  })
+
   return (
     <main className="container">
       <section className="cocktail_details">
@@ -68,23 +76,31 @@ function CocktailDetails() {
           <p className="cocktail_details__instructions">{instructions}</p>
           <div className="cocktail_details__serving">
             <div className="cocktail_details__alcoholic detailsCard">
-              <h4 className="details_label">Contains 🍸</h4>
+              <h4 className="details_label">Contains🍸</h4>
               <h4 className="details_content">{alcoholic}</h4>
             </div>
             <div className="cocktail_details__category detailsCard">
-              <h4 className="details_label">Category 🦄</h4>
+              <h4 className="details_label">Category🦄</h4>
               <h4 className="details_content">{category}</h4>
             </div>
             <div className="cocktail_details__glass detailsCard">
-              <h4 className="details_label">Glass 🥂</h4>
+              <h4 className="details_label">Glass🥂</h4>
               <h4 className="details_content">{glass}</h4>
             </div>
           </div>
-          <ul className="cocktail_details__ingredients">
-            {validIngredients.map((ingredient) => {
-              return <li key={crypto.randomUUID()}>{ingredient}</li>
-            })}
-          </ul>
+          <h3 className="ingredients_title">Ingredients</h3>
+          <div className="cocktail_details__preparation">
+            <ul className="cocktail_details__ingredients">
+              {validIngredients.map((ingredient) => {
+                return <li key={crypto.randomUUID()}>{ingredient}</li>
+              })}
+            </ul>
+            <ul className="cocktail_details__ingredients">
+              {validMeasures.map((measure) => {
+                return <li key={crypto.randomUUID()}>{measure}</li>
+              })}
+            </ul>
+          </div>
         </article>
       </section>
     </main>

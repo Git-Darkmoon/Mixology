@@ -18,11 +18,20 @@ const router = createBrowserRouter([
     path: "/",
     element: <HomeLayout />,
     errorElement: <Error />,
+
     children: [
-      { index: true, element: <Landing />, loader: landingLoader(queryClient) },
+      {
+        index: true,
+        element: <Landing />,
+        errorElement: <Error />,
+
+        loader: landingLoader(queryClient),
+      },
       {
         path: "cocktail/:id",
         element: <CocktailDetails />,
+        errorElement: <Error />,
+
         loader: singleCocktailLoader(queryClient),
       },
       { path: "about", element: <About /> },

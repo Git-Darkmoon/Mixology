@@ -43,6 +43,7 @@ body {
   width: 100%;
   @include mixin.myFlex();
   height: var(--layout-height);
+  padding-inline: var(--pd-x);
 
   a {
     color: var(--clr-green);

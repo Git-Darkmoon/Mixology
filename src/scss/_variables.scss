@@ -1,12 +1,12 @@
 :root {
-  --clr-bg: #111823;
+  --clr-bg: rgb(17, 24, 35);
 
   --clr-white: #fafafa;
   --clr-whiteFaded: hsla(0, 0%, 98%, 0.5);
   --clr-orange: #f7b054;
-  --clr-green: #77dd77;
+  --clr-green: rgb(119, 221, 119);
   --clr-greenFaded: hsl(120, 60%, 67%, 0.5);
-  --clr-pink: #f4b4fb;
+  --clr-pink: rgb(244, 180, 251);
   --clr-purple: hsl(280, 26%, 56%);
 
   --clr-primary: var(--clr-orange);
